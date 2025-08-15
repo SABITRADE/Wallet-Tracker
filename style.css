@@ -1,1 +1,43 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #0f172a;
+  color: #ffffff;
+  text-align: center;
+}
 
+header {
+  padding: 20px;
+  background: #1e293b;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+h1 {
+  color: #38bdf8;
+}
+
+main {
+  padding: 20px;
+}
+
+input, select, button {
+  padding: 10px;
+  margin: 5px;
+  border-radius: 5px;
+  border: none;
+}
+
+button {
+  background: #38bdf8;
+  color: black;
+  cursor: pointer;
+}
+
+#walletList, #airdropList, #stakingList {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 15px;
+  margin-top: 10px;
+  border-radius: 8px;
+  text-align: left;
+}
