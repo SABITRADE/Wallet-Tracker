@@ -260,3 +260,7 @@ async function getDeFiData(wallet) {
         console.error("DeBank fetch error:", e);
     }
                         }
+wallets.forEach(wallet => {
+    fetchBalances(wallet);
+    getDeFiData(wallet);
+});
