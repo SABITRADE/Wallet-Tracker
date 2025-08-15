@@ -1,4 +1,4 @@
-document.getElementById('addWallet').addEventListener('click', function() {
+document.getElementById('ScanWallet').addEventListener('click', function() {
   const wallet = document.getElementById('walletInput').value.trim();
   const network = document.getElementById('networkSelect').value;
 
