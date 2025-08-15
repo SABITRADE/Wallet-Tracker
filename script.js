@@ -229,3 +229,34 @@ document.addEventListener("DOMContentLoaded", () => {
   refreshAll();
   startTimer();
 });
+// ====== DeBank Staking & Airdrop Fetch ======
+async function getDeFiData(wallet) {
+    try {
+        let url = `https://api.debank.com/user/complex_protocol_list?id=${wallet}&chain=eth`;
+        let res = await fetch(url);
+        let data = await res.json();
+
+        if (data && data.data && data.data.length > 0) {
+            let stakingList = data.data
+                .filter(protocol => protocol.portfolio_item_list.some(item => item.name.toLowerCase().includes("stake")))
+                .map(protocol => protocol.name)
+                .join(", ");
+
+            let farmingList = data.data
+                .filter(protocol => protocol.portfolio_item_list.some(item => 
+                    item.name.toLowerCase().includes("farm") || 
+                    item.name.toLowerCase().includes("lp")
+                ))
+                .map(protocol => protocol.name)
+                .join(", ");
+
+            document.getElementById("staking").innerHTML = stakingList || "No active staking";
+            document.getElementById("airdrops").innerHTML = farmingList || "No active farming/airdrops";
+        } else {
+            document.getElementById("staking").innerHTML = "No active staking";
+            document.getElementById("airdrops").innerHTML = "No active farming/airdrops";
+        }
+    } catch (e) {
+        console.error("DeBank fetch error:", e);
+    }
+                        }
