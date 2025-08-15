@@ -1,1 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Multi-Chain Wallet Tracker</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="app-header">
+    <div class="brand">
+      <div class="brand-dot"></div>
+      <h1>Multi-Chain Wallet Tracker</h1>
+    </div>
+    <div class="header-actions">
+      <button id="refreshNow" class="btn ghost">Refresh now</button>
+    </div>
+  </header>
 
+  <main class="container">
+    <!-- Add wallet -->
+    <section class="card">
+      <h2>Add Wallet</h2>
+      <div class="form-row">
+        <select id="chainSelect">
+          <option value="ethereum">Ethereum (EVM)</option>
+          <option value="solana">Solana</option>
+          <option value="bitcoin">Bitcoin</option>
+        </select>
+        <input id="walletInput" type="text" placeholder="Paste wallet address…" />
+        <input id="labelInput" type="text" placeholder="Label (optional)" />
+        <button id="addWallet" class="btn">Add</button>
+      </div>
+      <p class="hint">
+        Tip: You can add many wallets. Data refreshes automatically every <strong>60s</strong>.
+      </p>
+    </section>
+
+    <!-- Table -->
+    <section class="card">
+      <div class="card-head">
+        <h2>Dashboard</h2>
+        <div class="card-tools">
+          <button id="clearAll" class="btn danger">Clear all</button>
+        </div>
+      </div>
+
+      <div class="table-wrap">
+        <table id="walletTable" class="table">
+          <thead>
+            <tr>
+              <th>Label</th>
+              <th>Address</th>
+              <th>Chain</th>
+              <th class="right">Balance</th>
+              <th class="right">USD Value</th>
+              <th class="center">Last Updated</th>
+              <th class="center">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="walletTbody">
+            <!-- rows injected by JS -->
+          </tbody>
+        </table>
+      </div>
+      <div id="status" class="status muted">Idle</div>
+    </section>
+
+    <!-- Airdrops / Staking placeholders for next phase -->
+    <section class="grid">
+      <div class="card">
+        <h2>Airdrops (beta)</h2>
+        <ul id="airdrops" class="list"></ul>
+      </div>
+      <div class="card">
+        <h2>Staking & DeFi (beta)</h2>
+        <ul id="staking" class="list"></ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <div>© 2025 Wallet Tracker • Auto-refresh: <span id="refreshTimer">—</span></div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+        </html>
