@@ -1,1 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Multi-Chain Wallet Tracker</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Multi-Chain Wallet Tracker</h1>
+    <p>Track balances, staking rewards, and airdrops across all your wallets</p>
+  </header>
 
+  <main>
+    <section id="wallets">
+      <h2>Your Wallets</h2>
+      <input type="text" id="walletInput" placeholder="Enter wallet address..." />
+      <select id="networkSelect">
+        <option value="solana">Solana</option>
+        <option value="ethereum">Ethereum</option>
+        <option value="bitcoin">Bitcoin</option>
+      </select>
+      <button id="addWallet">Add Wallet</button>
+
+      <div id="walletList"></div>
+    </section>
+
+    <section id="airdropSection">
+      <h2>Potential Airdrops</h2>
+      <ul id="airdropList"></ul>
+    </section>
+
+    <section id="stakingSection">
+      <h2>Staking Rewards</h2>
+      <ul id="stakingList"></ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Multi-Chain Wallet Tracker</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
