@@ -1,1 +1,133 @@
+/* --- Base --- */
+:root{
+  --bg:#0b1226;
+  --panel:#101a33;
+  --panel-2:#0d1730;
+  --text:#e6eefc;
+  --muted:#92a3c7;
+  --accent:#00f0ff;
+  --accent-2:#6aa7ff;
+  --danger:#ff5577;
+  --shadow: 0 20px 40px rgba(0,0,0,.35);
+}
 
+*{ box-sizing:border-box }
+html,body{ height:100% }
+body{
+  margin:0;
+  font-family: ui-sans-serif,system-ui,Segoe UI,Roboto,Inter,Arial,Apple Color Emoji,Segoe UI Emoji;
+  color:var(--text);
+  background:
+    radial-gradient(1200px 600px at 20% -10%, rgba(0,240,255,.18), transparent 60%),
+    radial-gradient(1000px 500px at 110% 0%, rgba(106,167,255,.14), transparent 50%),
+    linear-gradient(180deg, #0a1022 0%, var(--bg) 60%);
+}
+
+/* --- Header --- */
+.app-header{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:14px 18px; border-bottom:1px solid #132146; background:var(--panel-2);
+  position:sticky; top:0; z-index:10;
+}
+.brand{ display:flex; align-items:center; gap:10px }
+.brand h1{ font-size:1.05rem; letter-spacing:.2px; margin:0 }
+.brand-dot{
+  width:12px; height:12px; border-radius:50%;
+  background: conic-gradient(from 0deg, var(--accent), var(--accent-2), var(--accent));
+  box-shadow:0 0 12px rgba(0,240,255,.7), 0 0 24px rgba(106,167,255,.5);
+}
+
+/* --- Buttons --- */
+.btn{
+  background: linear-gradient(90deg, var(--accent) 0%, var(--accent-2) 100%);
+  color:#00121a; border:0; padding:10px 14px; border-radius:10px; font-weight:700;
+  cursor:pointer; box-shadow: var(--shadow); transition: transform .12s ease, opacity .2s ease;
+}
+.btn:hover{ transform: translateY(-1px) }
+.btn:active{ transform: translateY(0) }
+.btn.ghost{ background:transparent; color:var(--text); border:1px solid #22335f }
+.btn.danger{ background: linear-gradient(90deg, #ff8099, #ff5577); color:#2a0007 }
+
+/* --- Layout --- */
+.container{ width:min(1100px, 92%); margin:22px auto 64px; display:grid; gap:18px }
+.card{
+  background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+  border:1px solid #1a2b57; border-radius:16px; box-shadow: var(--shadow);
+  padding:18px;
+}
+.card-head{ display:flex; align-items:center; justify-content:space-between; margin-bottom:10px }
+.grid{ display:grid; gap:18px; grid-template-columns: 1fr 1fr }
+@media (max-width: 800px){ .grid{ grid-template-columns: 1fr } }
+
+/* --- Form --- */
+.form-row{
+  display:grid; gap:10px;
+  grid-template-columns: 160px 1fr 1fr 120px;
+}
+@media (max-width: 760px){
+  .form-row{ grid-template-columns: 1fr }
+}
+input, select{
+  width:100%; padding:12px 12px; border-radius:10px; border:1px solid #213469;
+  background:#0e1835; color:var(--text); outline:none;
+}
+input::placeholder{ color:#6f86b7 }
+
+/* --- Table --- */
+.table-wrap{ overflow:auto; border-radius:12px; border:1px solid #172a59 }
+.table{ width:100%; border-collapse:collapse; min-width:760px; background:var(--panel) }
+.table thead th{
+  position:sticky; top:0; z-index:1; background:#0f1a38; color:#cfe5ff;
+  font-weight:700; text-align:left; padding:14px 12px; border-bottom:1px solid #1b2d63;
+}
+.table td{
+  padding:12px; border-bottom:1px solid #132659; vertical-align:middle;
+}
+.right{text-align:right}
+.center{text-align:center}
+.address{ font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; color:#cfe5ff }
+.chain-pill{
+  display:inline-flex; align-items:center; gap:8px; padding:6px 10px; border-radius:999px;
+  background: #0b1638; border:1px solid #20336b;
+}
+.chain-dot{
+  width:8px; height:8px; border-radius:50%;
+  background: conic-gradient(from 0deg, var(--accent), var(--accent-2), var(--accent));
+  box-shadow: 0 0 10px rgba(0,240,255,.6);
+}
+.usd{
+  background: linear-gradient(90deg, rgba(0,240,255,.12), rgba(106,167,255,.12));
+  border:1px solid #1b2e62; padding:6px 10px; border-radius:8px; display:inline-block;
+}
+.row-actions{ display:flex; justify-content:center; gap:8px }
+.icon-btn{
+  background:transparent; border:1px solid #253a76; color:#bcd3ff; padding:6px 10px; border-radius:8px;
+  cursor:pointer;
+}
+.icon-btn:hover{ background:#122156 }
+
+/* --- Lists / status --- */
+.list{ margin:0; padding-left:18px }
+.status{ margin-top:10px }
+.muted{ color:var(--muted) }
+
+/* --- Fancy animated borders for cells (subtle) --- */
+td.glow{
+  position:relative;
+  border-image-slice:1; border-radius:10px;
+}
+td.glow::before{
+  content:""; position:absolute; inset:-1px;
+  background: conic-gradient(from 0deg, rgba(0,240,255,.35), rgba(106,167,255,.35), rgba(0,240,255,.35));
+  border-radius:12px; filter: blur(10px); z-index:0; opacity:.18; pointer-events:none;
+  animation: spin 14s linear infinite;
+}
+td.glow > *{ position:relative; z-index:1 }
+
+@keyframes spin{ to{ transform: rotate(360deg) } }
+
+/* --- Footer --- */
+.app-footer{
+  border-top:1px solid #132146; background:#0b142c; color:#9cb4e8;
+  padding:16px 18px; text-align:center;
+  }
