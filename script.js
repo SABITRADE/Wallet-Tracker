@@ -1,6 +1,6 @@
 /* ============== CONFIG (add your keys) ============== */
 const CONFIG = {
-  ETHERSCAN_API_KEY: "YOUR_ETHERSCAN_API_KEY",            // https://etherscan.io/myapikey
+  ETHERSCAN_API_KEY: "9MXK2CJK79RK8UF49ZGBYBJXDR61W7I5UJ",            // https://etherscan.io/myapikey
   BTC_PROVIDER: "blockchain",                              // "blockchain" | "blockstream"
   REFRESH_MS: 60_000
 };
